@@ -5,12 +5,13 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('add');
+		$this->Auth->allow('add', 'login', 'logout');
 	}
 
 	public function login() {
 		if($this->request->is('post')) {
 			if($this->Auth->login()) {
+				$this->Session->setFlash('Welcome, ' . $this->Auth->user('username') . '!');
 				$this->redirect($this->Auth->redirect());
 			} else {
 				$this->Session->setFlash('Invalid username or password.');
@@ -26,10 +27,11 @@ class UsersController extends AppController {
 		if($this->request->is('post')) {
 			$this->User->create();
 			if($this->User->save($this->request->data)) {
-				$this->Session->setFlash('Your user has been created.');
-				$this->redirect(array('controller' => 'posts', 'action' => 'index'));
+				$this->Auth->login();
+				$this->Session->setFlash('Your user has been registered.');
+				$this->redirect(array('/'));
 			} else {
-				$this->Session->setFlash('Your user could not be created.');
+				$this->Session->setFlash('Your user could not be registered.');
 			}
 		}
 	}

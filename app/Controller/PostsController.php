@@ -10,6 +10,7 @@ class PostsController extends AppController {
 	);
 
 	function beforeFilter() {
+		parent::beforeFilter();
 		$this->set('is_admin', (
 			($this->Auth->user('role') == 'admin')
 				? true
@@ -20,7 +21,9 @@ class PostsController extends AppController {
 
 	public function isAuthorized($user) {
 		if($this->action == 'add') {
-			return true;
+			if($this->Auth->user('role') == 'author') {
+				return true;
+			}
 		}
 		if(in_array($this->action, array('edit', 'delete'))) {
 			if($this->Post->isOwnedBy($this->request->params['pass'][0], $user['id'])) {
