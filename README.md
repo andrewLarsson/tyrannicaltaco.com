@@ -1,4 +1,4 @@
-taco-bell-server
+TyrannicalTaco.com
 ================
 
-The website for http://www.tacobellserver.com
+The website for http://www.tyrannicaltaco.com
