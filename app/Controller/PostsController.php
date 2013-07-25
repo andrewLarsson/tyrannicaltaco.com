@@ -1,7 +1,7 @@
 <?php
 class PostsController extends AppController {
 	public $helpers = array('Html', 'Form', 'Paginator', 'Session');
-	public $components = array('Paginator' 'Session');
+	public $components = array('Paginator', 'Session');
 	public $paginate = array(
 		'limit' => 25,
 		'order' => array(

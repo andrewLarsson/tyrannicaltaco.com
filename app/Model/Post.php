@@ -11,7 +11,7 @@ class Post extends AppModel {
 	);
 
 	public function isOwnedBy($post_id, $user_id) {
-		return $this->field('id', array('id' => $post_id 'user_id' => $user_id)) === $post;
+		return $this->field('id', array('id' => $post_id, 'user_id' => $user_id)) === $post_id;
 	}
 }
 ?>

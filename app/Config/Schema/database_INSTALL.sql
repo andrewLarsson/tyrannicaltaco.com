@@ -3,7 +3,8 @@ CREATE TABLE `posts` (
 	`title` varchar(64) NOT NULL DEFAULT '',
 	`user_id` int(10) NOT NULL,
 	`body` TEXT NOT NULL,
-	`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`created` datetime DEFAULT NULL,
+	`modified` datetime DEFAULT NULL,
 	PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
@@ -12,6 +13,7 @@ CREATE TABLE `users` (
 	`username` varchar(32),
 	`password` varchar(64),
 	`role` varchar(32),
-	`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`created` datetime DEFAULT NULL,
+	`modified` datetime DEFAULT NULL,
 	PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
