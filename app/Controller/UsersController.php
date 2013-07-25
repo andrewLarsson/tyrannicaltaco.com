@@ -22,6 +22,19 @@ class UsersController extends AppController {
 		$this->redirect($this->Auth->logout());
 	}
 
+	public function add() {
+		if($this->request->is('post')) {
+			$this->User->create();
+			if($this->User->save($this->request->data)) {
+				$this->Session->setFlash('Your user has been created.');
+				$this->redirect(array('controller' => 'posts', 'action' => 'index'));
+			} else {
+				$this->Session->setFlash('Your user could not be created.');
+			}
+		}
+	}
+
+	/*
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
@@ -33,18 +46,6 @@ class UsersController extends AppController {
 			throw new NotFoundException('Invalid user.');
 		}
 		$this->set('user', $this->User->read(null, $id));
-	}
-
-	public function add() {
-		if($this->request->is('post')) {
-			$this->User->create();
-			if($this->User->save($this->request->data)) {
-				$this->Session->setFlash('Your user has been created.');
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash('Your user could not be created.');
-			}
-		}
 	}
 
 	public function edit($id = null) {
@@ -80,5 +81,6 @@ class UsersController extends AppController {
 		$this->Session->setFlash('The user could not be deleted.');
 		$this->redirect(array('action' => 'index'));
 	}
+	*/
 }
 ?>
