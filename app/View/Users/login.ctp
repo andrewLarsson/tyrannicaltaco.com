@@ -5,6 +5,7 @@
 		<legend>Login</legend>
 		<?= $this->Form->input('username'); ?>
 		<?= $this->Form->input('password'); ?>
+		<?= $this->Form->end('Login'); ?>
 	</fieldset>
-	<?= $this->Form->end('Login'); ?>
+	<p>Need an account? <?= $this->Html->link('Register here.', array('controller' => 'users', 'action' => 'add')); ?></p>
 </div>

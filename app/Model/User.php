@@ -1,5 +1,6 @@
 <?php
 class User extends AppModel {
+	public $hasMany = 'Post';
 	public $validate = array(
 		'username' => array(
 			'required' => array(

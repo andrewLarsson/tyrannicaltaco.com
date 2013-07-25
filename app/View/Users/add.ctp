@@ -4,7 +4,7 @@
 		<legend>Registration</legend>
 		<?= $this->Form->input('username'); ?>
 		<?= $this->Form->input('password'); ?>
-		<?= $this->Form->input('role', array('options' => array('author' => 'Author'))); ?>
+		<?= $this->Form->input('role', array('type' => 'hidden', 'value' => 'author'))); ?>
+		<?= $this->Form->end('Register'); ?>
 	</fieldset>
-	<?= $this->Form->end('Create User'); ?>
 </div>

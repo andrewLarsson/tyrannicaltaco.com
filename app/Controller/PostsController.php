@@ -1,7 +1,22 @@
 <?php
 class PostsController extends AppController {
-	public $helpers = array('Html', 'Form', 'Session');
-	public $components = array('Session');
+	public $helpers = array('Html', 'Form', 'Paginator', 'Session');
+	public $components = array('Paginator' 'Session');
+	public $paginate = array(
+		'limit' => 25,
+		'order' => array(
+			'Post.id' => 'desc'
+		)
+	);
+
+	function beforeFilter() {
+		$this->set('is_admin', (
+			($this->Auth->user('role') == 'admin')
+				? true
+				: false
+			)
+		);
+	}
 
 	public function isAuthorized($user) {
 		if($this->action == 'add') {
@@ -17,6 +32,7 @@ class PostsController extends AppController {
 
 	public function index() {
 		$this->set('posts', $this->Post->find('all'));
+		$this->paginate();
 	}
 
 	public function view($id = null) {
@@ -27,6 +43,12 @@ class PostsController extends AppController {
 		if(!$post) {
 			throw new NotFoundException('Invalid post.');
 		}
+		$this->set('is_owner', (
+			($this->Post->isOwnedBy($id, $this->Auth->user('id')))
+				? true
+				: false
+			)
+		);
 		$this->set('post', $post);
 	}
 
