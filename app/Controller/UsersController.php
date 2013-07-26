@@ -29,7 +29,7 @@ class UsersController extends AppController {
 			if($this->User->save($this->request->data)) {
 				$this->Auth->login();
 				$this->Session->setFlash('Your user has been registered.');
-				$this->redirect(array('/'));
+				$this->redirect('/');
 			} else {
 				$this->Session->setFlash('Your user could not be registered.');
 			}

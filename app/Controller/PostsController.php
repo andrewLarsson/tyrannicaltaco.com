@@ -34,8 +34,7 @@ class PostsController extends AppController {
 	}
 
 	public function index() {
-		$this->set('posts', $this->Post->find('all'));
-		$this->paginate();
+		$this->set('posts', $this->paginate());
 	}
 
 	public function view($id = null) {
