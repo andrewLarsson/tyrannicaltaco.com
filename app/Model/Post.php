@@ -14,4 +14,3 @@ class Post extends AppModel {
 		return $this->field('id', array('id' => $post_id, 'user_id' => $user_id)) === $post_id;
 	}
 }
-?>

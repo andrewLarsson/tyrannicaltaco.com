@@ -93,10 +93,14 @@ class PostsController extends AppController {
 		if($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
+		if(!$id) {
+			throw new NotFoundException('Invalid post.');
+		}
 		if($this->Post->delete($id)) {
 			$this->Session->setFlash('Your post has been deleted.');
 			$this->redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash('Your post could not be deleted.');
 		}
 	}
 }
-?>
