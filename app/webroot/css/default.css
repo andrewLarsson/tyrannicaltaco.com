@@ -19,9 +19,9 @@ a {
 	padding: 6px 24px;
 	text-decoration: none;
 	text-shadow: 1px 1px 0px #287ace;
-}.button:hover {
+} .button:hover {
 	background-color: #4197ee;
-}.button:active {
+} .button:active {
 	position: relative;
 	top: 1px;
 }
@@ -31,23 +31,6 @@ a {
 	margin-bottom: 10px;
 	font-size: 17px;
 	background-color: #CDCDCD;
-}
-.post {
-	display: block;
-	margin-top: 10px;
-}
-.post_title {
-	display: block;
-	margin-top: 10px;
-	background-color: #CDCDCD;
-	font-size: 17px;
-	padding: 7px;
-}
-.post_body {
-	display: block;
-	padding: 10px 10px;
-	border-left: 1px solid #469DF5;
-	margin: 10px;
 }
 #container {
 	width: 50%;

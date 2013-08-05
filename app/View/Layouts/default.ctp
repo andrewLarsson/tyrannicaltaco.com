@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<?= $this->Html->charset(); ?>
-		<title>TyrannicalTaco's Server</title>
 		<?= $this->fetch('meta'); ?>
 		<?= $this->fetch('css'); ?>
 		<?= $this->fetch('script'); ?>
 		<?= $this->Html->css('default'); ?>
+		<?= $this->Html->css($this->params['controller']); ?>
+		<title>TyrannicalTaco's Server</title>
 	</head>
 	<body>
 		<div id="container">

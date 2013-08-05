@@ -1,0 +1,17 @@
+.post {
+	display: block;
+	margin-top: 10px;
+}
+.post_title {
+	display: block;
+	margin-top: 10px;
+	background-color: #CDCDCD;
+	font-size: 17px;
+	padding: 7px;
+}
+.post_body {
+	display: block;
+	padding: 10px 10px;
+	border-left: 1px solid #469DF5;
+	margin: 10px;
+}
